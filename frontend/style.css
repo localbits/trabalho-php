@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    background: white;
+    color: black;
+}
+
+body.dark {
+    background: black;
+    color: white;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.sidebar {
+    position: fixed;
+    width: 250px;
+    top: 0;
+    right: -250px;
+    height: 100vh; 
+    padding: 20px;
+    background: #ddd;
+    transition: 0.3s;
+}
+.sidebar.aberta {
+    right: 0;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Sistema Cadastro</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+            <aside class="sidebar">
+                <form action="../backend/bancoDados.php" method="POST">
+                    <input type="checkbox" name="dark-theme" id="dark-theme">   
+                    <label for="dark-theme">Dark Theme</label>
+                </form>
+            </aside>
+
+        <main class="content">
+                <form action= "../backend/bancoDados.php" method="POST">
+
+                    <h2>Cadastro</h2>
+
+                    <input type="TEXT" name="nome" placeholder="Name"> <br><br>
+                    <input type="TEXT" name="login" placeholder="Login"> <br><br>
+                    <input type="TEXT" name="email" placeholder="Email"> <br><br>
+                    <input type="TEXT" name="senha" placeholder="Password"> <br><br>
+
+                    <button type="submit" name="insert_user">
+                        Enviar
+                    </button>
+
+                </form>
+
+                <br>
+                <hr>
+
+                <form action="../backend/bancoDados.php" method="POST">
+
+                    <h2>Excluir cadastro</h2>
+
+                    <input type="TEXT" name="target" placeholder="Login">
+
+                    <button type="submit" name="delete_user">
+                        Excluir
+                    </button>
+
+                </form>
+
+                <br>
+                <hr>
+
+                <form action="../backend/bancoDados.php" method="POST">
+
+                    <h2>Buscar cadastro</h2>
+
+                    <input type="TEXT" name="search" placeholder="Login">
+
+                    <button type="submit" name="search_single_user">
+                        Buscar
+                    </button>
+
+                </form>
+
+                <br>
+                <hr>
+
+                <form action="../backend/bancoDados.php" method="POST">
+
+                    <button type="submit" name="search_all_users">
+                        Listar cadastros
+                    </button>
+
+                </form>
+
+                <br><hr>
+
+                <form action="../backend/auth.php" method="POST">
+
+                    <button type="submit" name="logout">
+                        Finalizar sessão
+                    </button>
+
+                </form>
+        </main>
+    </body>
+
+</html>
