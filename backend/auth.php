@@ -2,8 +2,6 @@
 
     require 'functions.php';
 
-    $server_connection = mysqli_connect("localhost", "root", "", "basecadastros");
-
     $admin_username = "root";
     $admin_password = "123";
 

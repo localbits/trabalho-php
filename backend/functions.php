@@ -22,7 +22,7 @@
             }
         }
 
-        $insert_user_string = "INSERT INTO cadastros(username, login, email, password) VALUES('$username', '$login','$email', '$password')";
+        $insert_user_string = "INSERT INTO cadastros(nome, login, email, senha) VALUES('$username', '$login','$email', '$password')";
         $result = mysqli_query($server_connection, $insert_user_string);
 
         if (!$result) {
@@ -86,6 +86,7 @@
         <tr>
             <th>ID</th>
             <th>Username</th>
+            <th>Login</th>
             <th>Email</th>
         </tr>";
 
@@ -93,7 +94,8 @@
             echo "
             <tr>
                 <td>{$row['id']}</td>
-                <td>{$row['username']}</td>
+                <td>{$row['nome']}</td>
+                <td>{$row['login']}</td>
                 <td>{$row['email']}</td>
             </tr>";
         }
