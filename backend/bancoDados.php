@@ -21,7 +21,7 @@
     } */
 
     if(isset($_POST['insert_user'])) {
-        insert_user($server_connection, $_POST['nome'], $_POST['login'], $_POST['email'], $_POST['senha']);
+        insert_user($server_connection, $_POST['username'], $_POST['login'], $_POST['email'], $_POST['passwords']);
     }
 
     if(isset($_POST['delete_user'])) {

@@ -1,5 +1,5 @@
 <?php
-    function insert_user($server_connection, $, $login, $email, $password) {
+    function insert_user($server_connection, $username, $login, $email, $password) {
         if(!ctype_alpha(str_replace(' ','',$username))) {
             error_log("Name is invalid");
             echo 
@@ -22,7 +22,7 @@
             }
         }
 
-        $insert_user_string = "INSERT INTO cadastros(username, login, email, password) VALUES('$nome', '$login','$email', '$senha')";
+        $insert_user_string = "INSERT INTO cadastros(username, login, email, password) VALUES('$username', '$login','$email', '$password')";
         $result = mysqli_query($server_connection, $insert_user_string);
 
         if (!$result) {
