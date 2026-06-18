@@ -1,8 +1,14 @@
-<?php 
+<?php
     require 'functions.php';
 
-    $server_connection = mysqli_connect("localhost", "root", "", "basecadastros");
+    $hostname = "127.0.0.1"; // localhost for MyPhpAdmin
+    $username = "dev"; // root for MyPhpAdmin
+    $password = "dev"; // "" for MyPhpAdmin
+    $database = "basecadastros";
+    $port = "3307"; // Does not need to be given as a parameter for myphpadmin
 
+    $server_connection = mysqli_connect($hostname, $username, $password, $database, $port);
+    
     if (!$server_connection) {
         die("Connection failed\n" . mysqli_connect_error());
     }
