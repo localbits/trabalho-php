@@ -14,7 +14,7 @@
 
             $student_login = $_SESSION["userlogin"];
 
-            search_student($conexao, $student_login);
+            search_student($server_connection, $student_login);
         ?>
     </body>
 

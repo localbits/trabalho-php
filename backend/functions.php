@@ -1,6 +1,6 @@
 <?php
-    function insert_user($conexao, $nome, $login, $email, $senha) {
-        if(!ctype_alpha(str_replace(' ','',$nome))) {
+    function insert_user($server_connection, $, $login, $email, $password) {
+        if(!ctype_alpha(str_replace(' ','',$username))) {
             error_log("Name is invalid");
             echo 
             "<script>
@@ -22,8 +22,8 @@
             }
         }
 
-        $insert_user_string = "INSERT INTO cadastros(nome, login, email, senha) VALUES('$nome', '$login','$email', '$senha')";
-        $result = mysqli_query($conexao, $insert_user_string);
+        $insert_user_string = "INSERT INTO cadastros(username, login, email, password) VALUES('$nome', '$login','$email', '$senha')";
+        $result = mysqli_query($server_connection, $insert_user_string);
 
         if (!$result) {
             echo "Failed to insert user<br>";
@@ -36,9 +36,9 @@
         return $result;
     }
 
-    function delete_user($conexao, $login) {
+    function delete_user($server_connection, $login) {
         $erase_user = "DELETE FROM cadastros WHERE login = '$login'";
-        $result = mysqli_query($conexao, $erase_user);
+        $result = mysqli_query($server_connection, $erase_user);
         if (!$result) {
             echo "Failed to delete user<br>";
         } else {
@@ -47,45 +47,45 @@
         return $result;
     }
 
-    function search_single_user($conexao, $login) {
+    function search_single_user($server_connection, $login) {
 
         $search_user = "SELECT * FROM cadastros WHERE login = '$login'";
-        $query_result = mysqli_query($conexao, $search_user);
+        $query_result = mysqli_query($server_connection, $search_user);
 
         if (!$query_result) {
             echo "User not in the database<br>";
         }
         while ($row = mysqli_fetch_assoc($query_result)) {
-            echo "Nome: " . $row['nome'] . "<br>";
+            echo "Username: " . $row['nome'] . "<br>";
             echo "Email: " . $row['email'] . "<br>";
         }
     }
 
-    function search_student($conexao, $student_login) {
+    function search_student($server_connection, $student_login) {
 
         $search_user = "SELECT * FROM cadastros WHERE login = '$student_login'";
-        $query_result = mysqli_query($conexao, $search_user);
+        $query_result = mysqli_query($server_connection, $search_user);
 
         if (!$query_result) {
             echo "Student not in the database<br>";
         }
         while ($row = mysqli_fetch_assoc($query_result)) {
-            echo "Nome: " . $row['nome'] . "<br>";
+            echo "Username: " . $row['nome'] . "<br>";
             echo "RA: " . $row['id'] . "<br>";
         }
     }
 
-    function show_db($conexao) {
+    function show_db($server_connection) {
 
         $search_user = "SELECT * FROM cadastros";
-        $query_result = mysqli_query($conexao, $search_user);
+        $query_result = mysqli_query($server_connection, $search_user);
 
         echo "<table border = '1'>";
 
         echo"
         <tr>
             <th>ID</th>
-            <th>Nome</th>
+            <th>Username</th>
             <th>Email</th>
         </tr>";
 
@@ -93,7 +93,7 @@
             echo "
             <tr>
                 <td>{$row['id']}</td>
-                <td>{$row['nome']}</td>
+                <td>{$row['username']}</td>
                 <td>{$row['email']}</td>
             </tr>";
         }
@@ -104,7 +104,7 @@
         echo "<a href='../frontend/admin.html'>Voltar</a>";
     }
 
-    function retrieve_userID($conexao, $login) {
+    function retrieve_userID($server_connection, $login) {
         $search_user = "SELECT id FROM cadastros WHERE login = '$login'";
         return $search_user;
     }
@@ -116,18 +116,14 @@
         return false;
     }
 
-    function student_auth($conexao, $student_login, $student_password) {
-        $student_login_query = mysqli_query($conexao, "SELECT * FROM cadastros WHERE login = '$student_login'");
-        $student_password_query = mysqli_query($conexao, "SELECT * FROM cadastros WHERE senha = '$student_password'");
+    function student_auth($server_connection, $student_login, $student_password) {
+        $student_login_query = mysqli_query($server_connection, "SELECT * FROM cadastros WHERE login = '$student_login'");
+        $student_password_query = mysqli_query($server_connection, "SELECT * FROM cadastros WHERE password = '$student_password'");
 
         if (mysqli_num_rows($student_login_query) == 0 || mysqli_num_rows($student_password_query) == 0) {
-            echo 
-            "<script>
-                alert('its false trust');
-            </script>";
             return false;
         }
-        
+
         return true;
     }
 ?>

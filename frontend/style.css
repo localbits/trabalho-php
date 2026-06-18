@@ -24,6 +24,6 @@ body.dark {
     background: #ddd;
     transition: 0.3s;
 }
-.sidebar.aberta {
+.sidebar.toggled {
     right: 0;
 }
