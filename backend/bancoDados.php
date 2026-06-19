@@ -1,5 +1,6 @@
 <?php
     require 'functions.php';
+    require 'preferences.php';
 
     $hostname = "127.0.0.1"; // localhost for MyPhpAdmin
     $username = "dev"; // root for MyPhpAdmin
@@ -26,6 +27,7 @@
         ";
     } */
 
+
     if(isset($_POST['insert_user'])) {
         insert_user($server_connection, $_POST['username'], $_POST['login'], $_POST['email'], $_POST['passwords']);
     }
@@ -39,7 +41,7 @@
     }
 
     if(isset($_POST['search_all_users'])) {
-        show_db($server_connection, $_POST['search_all_users']);
+        show_db($server_connection);
     }
 
     mysqli_close($server_connection);

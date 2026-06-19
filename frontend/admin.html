@@ -12,10 +12,8 @@
             <button id="toggle">☰</button>
         </div>
             <aside id="sidebar" class="sidebar">
-                <form action="../backend/bancoDados.php" method="POST">
-                    <input type="checkbox" name="dark-theme" id="dark-theme">   
-                    <label for="dark-theme">Dark Theme</label>
-                </form>
+                <input type="checkbox" name="dark-theme" id="dark-theme">
+                <label for="dark-theme">Dark Theme</label>
             </aside>
 
         <main class="content">
@@ -86,12 +84,49 @@
                 </form>
         </main>
         <script>
-            const toggleBtn = document.getElementById('toggle');
-            const sidebar = document.getElementById('sidebar');
-            const darkMode = document.getElementById('dark-theme');
+          // 1. Select elements
+          const toggleBtn = document.getElementById('toggle');
+          const sidebar = document.getElementById('sidebar');
+          const darkThemeCheckbox = document.getElementById('dark-theme');
 
-            toggleBtn.addEventListener('click', () => {sidebar.classList.toggle('toggled');});
-            darkMode.addEventListener('change', () => {document.body.classList.toggle('dark');});
+          // --- SIDEBAR LOGIC (Kept exactly the same) ---
+          toggleBtn.addEventListener('click', () => {
+              sidebar.classList.toggle('toggled');
+          });
+
+
+          // --- DARK MODE & COOKIE LOGIC ---
+
+          // Function to get a cookie value by its name
+          function getCookie(name) {
+              let value = "; " + document.cookie;
+              let parts = value.split("; " + name + "=");
+              if (parts.length === 2) return parts.pop().split(";").shift();
+          }
+
+          // A. RUNS ON PAGE LOAD: Check if user previously picked dark mode
+          const themePreference = getCookie("theme");
+
+          if (themePreference === "dark") {
+              document.body.classList.add('dark');
+              darkThemeCheckbox.checked = true; // Keep the checkbox visually checked
+          } else {
+              document.body.classList.remove('dark');
+              darkThemeCheckbox.checked = false;
+          }
+
+          // B. RUNS ON USER INTERACTION: Listen for the checkbox flip
+          darkThemeCheckbox.addEventListener('change', () => {
+              if (darkThemeCheckbox.checked) {
+                  document.body.classList.add('dark');
+                  // Save cookie for 365 days
+                  document.cookie = "theme=dark; max-age=" + (60 * 60 * 24 * 365) + "; path=/";
+              } else {
+                  document.body.classList.remove('dark');
+                  // Save cookie as light (or delete it)
+                  document.cookie = "theme=light; max-age=" + (60 * 60 * 24 * 365) + "; path=/";
+              }
+          });
         </script>
     </body>
 

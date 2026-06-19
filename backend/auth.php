@@ -26,7 +26,7 @@
         $admin_fail = true;
     }
 
-    if (student_auth($conexao, $login, $password)) {
+    if (student_auth($server_connection, $login, $password)) {
         session_start();
         $_SESSION["userlogin"] = $login;
         $_SESSION["password"] = $password;
