@@ -66,13 +66,11 @@
         $search_user = "SELECT * FROM cadastros WHERE login = '$student_login'";
         $query_result = mysqli_query($server_connection, $search_user);
 
-        if (!$query_result) {
-            echo "Student not in the database<br>";
+        if (!$query_result || mysqli_num_rows($query_result) == 0) {
+            return null;
         }
-        while ($row = mysqli_fetch_assoc($query_result)) {
-            echo "Username: " . $row['nome'] . "<br>";
-            echo "RA: " . $row['id'] . "<br>";
-        }
+       
+        return mysqli_fetch_assoc($query_result);
     }
 
     function show_db($server_connection) {

@@ -51,11 +51,12 @@
     }
 
     if(isset($_POST['logout'])) {
+        session_start();
+        $_SESSION = array();
         session_destroy();
-        echo 
-        "<script>
-            window.location.href='../index.html';
-        </script>";
+
+        header("Location: ../index.html");
+        exit();
     }
 
 ?>

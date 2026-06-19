@@ -6,7 +6,7 @@
 
     $student_login = $_SESSION["userlogin"];
 
-    search_student($server_connection, $student_login);
+    $aluno = search_student($server_connection, $student_login);
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +63,14 @@
                 <p><strong>Atenção:</strong> O prazo para a entrega do projeto de Banco de Dados encerra na próxima sexta-feira.</p> <br>
                 <p>Rematrícula para o próximo semestre disponível a partir do dia 10/07.</p>
             </div>
+
+            <form action="../backend/auth.php" method="POST">
+
+                    <button type="submit" name="logout">
+                        Finalizar sessão
+                    </button>
+
+                </form>
         </main>
         <script>
           const toggleBtn = document.getElementById('toggle');
