@@ -38,7 +38,7 @@
                 <h2>Aluno</h2>
 
                 <p><strong>Nome do Aluno:</strong> <?php echo isset($aluno['nome']) ? $aluno['nome'] : 'Nome não encontrado'; ?></p>
-                
+
                 <p><strong>RA / RU (ID):</strong> <?php echo isset($aluno['id']) ? $aluno['id'] : 'RA não encontrado'; ?></p>
             </div>
 
@@ -58,6 +58,14 @@
                 </ul>
             </div>
         </main>
+        <script>
+            const toggleBtn = document.getElementById('toggle');
+            const sidebar = document.getElementById('sidebar');
+            const darkMode = document.getElementById('dark-theme');
+
+            toggleBtn.addEventListener('click', () => {sidebar.classList.toggle('toggled');});
+            darkMode.addEventListener('change', () => {document.body.classList.toggle('dark');});
+        </script>
     </body>
 
 </html>

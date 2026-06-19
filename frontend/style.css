@@ -82,14 +82,18 @@ body.dark .top_header {
     border: 1px solid #e0e0e0; 
     padding: 20px; margin-bottom: 20px; 
     border-radius: 8px; 
+    color: black;
 }
 .card h2 { 
     margin-bottom: 12px; 
     color: #0056b3; 
 }
 ul { 
-    list-style-position: inside; margin-top: 8px; }
+    list-style-position: inside; 
+    margin-top: 8px; 
+}
 
 li { 
     margin-bottom: 6px; 
+    color: black;
 }
