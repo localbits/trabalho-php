@@ -3,22 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <title>Sistema Cadastro</title>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
+        <header class="top_header">
+            <h1>Área de Login</h1>
+        </header>
+        <main class="content">
+            <form action= "backend/auth.php" method="POST">
 
-        <form action= "backend/auth.php" method="POST">
+                <input type="TEXT" name="login" placeholder="Login"> <br><br>
+                <input type="TEXT" name="password" placeholder="Password"> <br><br>
 
-            <h2>Login</h2>
+                <button type="submit" name="authenticate">
+                    Enviar
+                </button>
 
-            <input type="TEXT" name="login" placeholder="Login"> <br><br>
-            <input type="TEXT" name="password" placeholder="Password"> <br><br>
+            </form>
+        </main>
 
-            <button type="submit" name="authenticate">
-                Enviar
-            </button>
-
-        </form>
+        <footer><p>© 2026 Sistema Acadêmico</p></footer>
 
     </body>
 

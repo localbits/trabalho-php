@@ -2,6 +2,9 @@
 
 body {
     display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
     background: white;
     color: black;
 }
@@ -45,6 +48,7 @@ body.dark {
 .content {
     margin-top: 70px;
     padding: 20px;
+    flex: 1;
 }
 
 .top_header {
@@ -75,7 +79,8 @@ body.dark .top_header {
 .student-content { 
     max-width: 800px; 
     margin: 90px auto 40px auto; 
-    padding: 0 20px; 
+    padding: 0 20px;
+    flex: 1; 
 }
 .card { 
     background: #f9f9f9; 
@@ -96,4 +101,17 @@ ul {
 li { 
     margin-bottom: 6px; 
     color: black;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+}
+
+body.dark footer {
+    background-color: #1a1a1a;
+    border-top: 1px solid #333;
 }

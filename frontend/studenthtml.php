@@ -23,10 +23,8 @@
         </header>
         
             <aside id="sidebar" class="sidebar">
-                <form action="../backend/bancoDados.php" method="POST">
                     <input type="checkbox" name="dark-theme" id="dark-theme">   
                     <label for="dark-theme"><strong>Enable dark mode</strong></label>
-                </form>
             </aside>
 
         <main class="student-content">
@@ -72,6 +70,9 @@
 
                 </form>
         </main>
+
+        <footer><p>© 2026 Sistema Acadêmico</p></footer>
+        
         <script>
           const toggleBtn = document.getElementById('toggle');
           const sidebar = document.getElementById('sidebar');
