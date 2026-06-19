@@ -20,6 +20,7 @@
     <body>
         <header class="top_header">
             <button id="toggle">☰</button>
+            <h1>Área do Aluno</h1>
         </header>
         
             <aside id="sidebar" class="sidebar">
@@ -28,7 +29,6 @@
             </aside>
 
         <main class="student-content">
-            <h1>Área do Aluno</h1>
 
             <br>
 
