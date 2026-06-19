@@ -57,14 +57,47 @@
                     <li>Engenharia de Software</li>
                 </ul>
             </div>
+
+            <div class="card" style="border-left: 5px solid #ffcc00;">
+                <h2>Avisos Acadêmicos</h2>
+                <p><strong>Atenção:</strong> O prazo para a entrega do projeto de Banco de Dados encerra na próxima sexta-feira.</p> <br>
+                <p>Rematrícula para o próximo semestre disponível a partir do dia 10/07.</p>
+            </div>
         </main>
         <script>
-            const toggleBtn = document.getElementById('toggle');
-            const sidebar = document.getElementById('sidebar');
-            const darkMode = document.getElementById('dark-theme');
+          const toggleBtn = document.getElementById('toggle');
+          const sidebar = document.getElementById('sidebar');
+          const darkThemeCheckbox = document.getElementById('dark-theme');
 
-            toggleBtn.addEventListener('click', () => {sidebar.classList.toggle('toggled');});
-            darkMode.addEventListener('change', () => {document.body.classList.toggle('dark');});
+          toggleBtn.addEventListener('click', () => {
+              sidebar.classList.toggle('toggled');
+          });
+
+          function getCookie(name) {
+              let value = "; " + document.cookie;
+              let parts = value.split("; " + name + "=");
+              if (parts.length === 2) return parts.pop().split(";").shift();
+          }
+
+          const themePreference = getCookie("theme");
+
+          if (themePreference === "dark") {
+              document.body.classList.add('dark');
+              darkThemeCheckbox.checked = true;
+          } else {
+              document.body.classList.remove('dark');
+              darkThemeCheckbox.checked = false;
+          }
+
+          darkThemeCheckbox.addEventListener('change', () => {
+              if (darkThemeCheckbox.checked) {
+                  document.body.classList.add('dark');
+                  document.cookie = "theme=dark; max-age=" + (60 * 60 * 24 * 365) + "; path=/";
+              } else {
+                  document.body.classList.remove('dark');
+                  document.cookie = "theme=light; max-age=" + (60 * 60 * 24 * 365) + "; path=/";
+              }
+          });
         </script>
     </body>
 
