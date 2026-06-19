@@ -10,17 +10,6 @@
     else {
         error_log("Successfully connected to the db\n");
     }
-    
-    /* TODO: implement dark theme with usage of web cookies
-      if(isset($_POST['dark-theme'])) {
-        echo 
-        "
-        <script> 
-            document.getElementById('content').href = 'style.css';
-        </script>
-        ";
-    } */
-
 
     if(isset($_POST['insert_user'])) {
         insert_user($server_connection, $_POST['username'], $_POST['login'], $_POST['email'], $_POST['password']);
