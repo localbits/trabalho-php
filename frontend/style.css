@@ -1,3 +1,5 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+
 body {
     display: flex;
     background: white;
@@ -68,4 +70,30 @@ body.dark .top_header {
     background: #1f1f1f;
     color: white;
     border-bottom: 1px solid #333;
+}
+
+.student-content { 
+    max-width: 800px; 
+    margin: 90px auto 40px auto; 
+    padding: 0 20px; 
+}
+.card { 
+    background: #f9f9f9; 
+    border: 1px solid #e0e0e0; 
+    padding: 20px; margin-bottom: 20px; 
+    border-radius: 8px; 
+    color: black;
+}
+.card h2 { 
+    margin-bottom: 12px; 
+    color: #0056b3; 
+}
+ul { 
+    list-style-position: inside; 
+    margin-top: 8px; 
+}
+
+li { 
+    margin-bottom: 6px; 
+    color: black;
 }

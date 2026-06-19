@@ -1,15 +1,9 @@
-<?php
+<?php 
     require 'functions.php';
     require 'preferences.php';
 
-    $hostname = "127.0.0.1"; // localhost for MyPhpAdmin
-    $username = "dev"; // root for MyPhpAdmin
-    $password = "dev"; // "" for MyPhpAdmin
-    $database = "basecadastros";
-    $port = "3307"; // Does not need to be given as a parameter for myphpadmin
+    $server_connection = mysqli_connect("localhost", "root", "", "basecadastros");
 
-    $server_connection = mysqli_connect($hostname, $username, $password, $database, $port);
-    
     if (!$server_connection) {
         die("Connection failed\n" . mysqli_connect_error());
     }
@@ -29,7 +23,7 @@
 
 
     if(isset($_POST['insert_user'])) {
-        insert_user($server_connection, $_POST['username'], $_POST['login'], $_POST['email'], $_POST['passwords']);
+        insert_user($server_connection, $_POST['username'], $_POST['login'], $_POST['email'], $_POST['password']);
     }
 
     if(isset($_POST['delete_user'])) {

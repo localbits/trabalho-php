@@ -8,12 +8,15 @@
     </head>
 
     <body>
-        <div class="top_header">
+        <header class="top_header">
             <button id="toggle">☰</button>
-        </div>
+        </header>
+        
             <aside id="sidebar" class="sidebar">
-                <input type="checkbox" name="dark-theme" id="dark-theme">
-                <label for="dark-theme">Dark Theme</label>
+                <form action="../backend/bancoDados.php" method="POST">
+                    <input type="checkbox" name="dark-theme" id="dark-theme">   
+                    <label for="dark-theme"><strong>Enable dark mode</strong></label>
+                </form>
             </aside>
 
         <main class="content">

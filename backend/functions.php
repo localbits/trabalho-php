@@ -120,7 +120,7 @@
 
     function student_auth($server_connection, $student_login, $student_password) {
         $student_login_query = mysqli_query($server_connection, "SELECT * FROM cadastros WHERE login = '$student_login'");
-        $student_password_query = mysqli_query($server_connection, "SELECT * FROM cadastros WHERE password = '$student_password'");
+        $student_password_query = mysqli_query($server_connection, "SELECT * FROM cadastros WHERE senha = '$student_password'");
 
         if (mysqli_num_rows($student_login_query) == 0 || mysqli_num_rows($student_password_query) == 0) {
             return false;
