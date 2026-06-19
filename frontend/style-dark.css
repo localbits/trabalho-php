@@ -1,0 +1,51 @@
+body {
+    display: flex;
+    background: #121212;
+    color: white;
+}
+.content {
+    flex: 1;
+    padding: 20px;
+}
+.sidebar {
+    position: fixed;
+    width: 250px;
+    top: 0;
+    left: -300px;
+    height: 100vh; 
+    padding: 80px 20px 20px 20px;
+    background: #222222;
+    color: #ffffff;
+    transition: 0.3s;
+}
+.sidebar.toggled {
+    left: 0;
+}
+#toggle {
+    position:fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    transition: 0.3s;
+}
+.sidebar.toggled ~ #toggle {
+    left:270px;
+}
+.content {
+    margin-top: 70px;
+    padding: 20px;
+}
+.top_header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #1f1f1f; 
+    color: white;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    z-index: 100;
+}
