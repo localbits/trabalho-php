@@ -94,6 +94,15 @@
               sidebar.classList.toggle('toggled');
           });
 
+          /* Returns the value of a given cookie name through string manipulation.
+           * The function appends "; " to the string list of cookies in the website, then splits said list using ; name= as the delimiter.
+           * Taking the split list the function checks whether its length is equal to 2 or not, if it is that means we have successfully found the value from the cookie we needed.
+           * What remains is to acquire the value itself which is done by:
+           * - pop(): work with the last string of the array
+           * - split(";"): splits by ;
+           * - shift(): gets the first string element which is the value we needed.
+           * */
+
           function getCookie(name) {
               let value = "; " + document.cookie;
               let parts = value.split("; " + name + "=");
