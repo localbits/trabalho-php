@@ -1,6 +1,7 @@
 <?php
 
     require 'functions.php';
+    $server_connection = mysqli_connect("localhost", "root", "", "basecadastros");
 
     $admin_username = "root";
     $admin_password = "123";
@@ -26,7 +27,7 @@
         $admin_fail = true;
     }
 
-    if (student_auth($conexao, $login, $password)) {
+    if (student_auth($server_connection, $login, $password)) {
         session_start();
         $_SESSION["userlogin"] = $login;
         $_SESSION["password"] = $password;
