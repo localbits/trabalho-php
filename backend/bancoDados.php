@@ -1,6 +1,5 @@
 <?php 
     require 'functions.php';
-    require 'preferences.php';
 
     $server_connection = mysqli_connect("localhost", "root", "", "basecadastros");
 
